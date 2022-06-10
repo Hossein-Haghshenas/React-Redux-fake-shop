@@ -10,10 +10,10 @@ const ProductComponent = () => {
         <Link to={`/product/${id}`}>
           <section className="ui link cards" key={id}>
             <section className="card ">
-              <section className="image">
-                <img src={image} alt={title} />
+              <section>
+                <img src={image} alt={title} width="100%" height="300" />
               </section>
-              <section className="content">
+              <section className="content" style={{ height: "120px" }}>
                 <section className="header">{title}</section>
                 <section className="meta price">$ {price}</section>
                 <section className="meta">{category}</section>

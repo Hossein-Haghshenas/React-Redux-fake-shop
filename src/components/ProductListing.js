@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import ProductComponent from "./ProductComponent";
+import { Grid, Image } from "semantic-ui-react";
 
 const ProductListing = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ const ProductListing = () => {
     fetchproducts();
   }, []);
   return (
-    <section className="ui grid container">
+    <Grid relaxed="very" columns={4}>
       <ProductComponent />
-    </section>
+    </Grid>
   );
 };
 

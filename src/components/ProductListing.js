@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import ProductComponent from "./ProductComponent";
-import { Grid, Image } from "semantic-ui-react";
+import Grid from "@mui/material/Grid";
 
 const ProductListing = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,12 @@ const ProductListing = () => {
     fetchproducts();
   }, []);
   return (
-    <Grid relaxed="very" columns={4}>
+    <Grid
+      container
+      direction="row"
+      justifyContent="space-around"
+      alignItems="center"
+    >
       <ProductComponent />
     </Grid>
   );

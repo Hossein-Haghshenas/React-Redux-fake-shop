@@ -6,6 +6,8 @@ import {
   selectedProduct,
   removeSelectedProduct,
 } from "../redux/actions/productAction";
+import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const ProductDetails = () => {
   const product = useSelector((state) => state.product);
@@ -31,9 +33,11 @@ const ProductDetails = () => {
     };
   }, [productId]);
   return (
-    <section className="ui grid container">
+    <section className="ui grid container centered">
       {Object.keys(product).length === 0 ? (
-        <section>...Loading</section>
+        <Stack sx={{ color: "grey.500" }} spacing={2} direction="row">
+          <CircularProgress color="secondary" />
+        </Stack>
       ) : (
         <section className="ui placeholder segment">
           <section className="ui two column stackable center aligned grid">

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import ProductComponent from "./ProductComponent";
 import Grid from "@mui/material/Grid";
+import { Container } from "@mui/material";
 
 const ProductListing = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,18 @@ const ProductListing = () => {
     fetchproducts();
   }, []);
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="space-around"
-      alignItems="center"
-    >
-      <ProductComponent />
-    </Grid>
+    <Container>
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-around"
+        alignItems="center"
+        marginTop="2rem"
+        spacing={4}
+      >
+        <ProductComponent />
+      </Grid>
+    </Container>
   );
 };
 

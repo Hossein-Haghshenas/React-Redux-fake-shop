@@ -1,27 +1,48 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  Grid,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
   const renderList = products.map((product) => {
     const { id, title, image, price, category } = product;
     return (
-      <section className="four column wide">
+      <Grid item>
         <Link to={`/product/${id}`}>
-          <section className="ui link cards" key={id}>
-            <section className="card ">
-              <section>
-                <img src={image} alt={title} width="100%" height="300" />
-              </section>
-              <section className="content" style={{ height: "120px" }}>
-                <section className="header">{title}</section>
-                <section className="meta price">$ {price}</section>
-                <section className="meta">{category}</section>
-              </section>
-            </section>
-          </section>
+          <Card sx={{ width: "20rem", height: "35rem" }}>
+            <Grid width="100%">
+              <img src={image} alt={title} width="100%" height="300px" />
+            </Grid>
+            <CardContent sx={{ with: "100%", height: "8rem" }}>
+              <Typography gutterBottom variant="h5" component="div">
+                {title}
+              </Typography>
+            </CardContent>
+            <CardActions
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                with: "100%",
+                height: "max-content",
+              }}
+            >
+              <Typography gutterBottom variant="button" component="span">
+                {price} $
+              </Typography>
+              <Typography gutterBottom variant="button" component="span">
+                {category}
+              </Typography>
+            </CardActions>
+          </Card>
         </Link>
-      </section>
+      </Grid>
     );
   });
   return <>{renderList}</>;
